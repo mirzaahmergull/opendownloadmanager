@@ -4,7 +4,7 @@ Issues and pull requests are welcome. Describe the user-visible problem, expecte
 
 ## Development
 
-Use Node.js 24 or later. Install with `npm ci --ignore-scripts`, then `node node_modules/electron/install.js`. On Windows run `npm run setup:windows`; on a Mac run `npm run setup:mac`. These commands download third-party tools from upstream and verify checksums. `npm start` launches the app. See [README](README.md) and [MACOS](MACOS.md) for platform limits.
+Use Node.js 24 or later. Install with `npm ci --ignore-scripts`, then `node node_modules/electron/install.js` and `npm rebuild node-datachannel`. WebTorrent imports this native dependency even though ODM disables WebRTC peer transport; skipping its installation breaks torrent imports. On Windows run `npm run setup:windows`; on a Mac run `npm run setup:mac`. These commands download third-party tools from upstream and verify checksums. `npm start` launches the app. See [README](README.md) and [MACOS](MACOS.md) for platform limits.
 
 Run `npm test` for the deterministic backend suite and `npm run test:ui`, `npm run test:modern`, and `npm run test:batches` for affected desktop flows. Tests use temporary app data. Run `npx playwright install chromium` before extension tests. Live YouTube/cloud-account tests are opt-in; do not require private credentials in CI. macOS backend mock coverage is currently incomplete; Windows CI is the supported full-suite runner.
 

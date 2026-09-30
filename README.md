@@ -131,6 +131,7 @@ git clone https://github.com/mirzaahmergull/opendownloadmanager.git
 cd opendownloadmanager
 npm ci --ignore-scripts
 node node_modules/electron/install.js
+npm rebuild node-datachannel
 npm run setup:windows
 npm start
 ```

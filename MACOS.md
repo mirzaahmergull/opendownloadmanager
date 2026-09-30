@@ -29,6 +29,7 @@ With Node installed, from the source directory:
 ```sh
 npm ci --ignore-scripts
 node node_modules/electron/install.js
+npm rebuild node-datachannel
 npm run setup:mac
 npm test
 npm start
