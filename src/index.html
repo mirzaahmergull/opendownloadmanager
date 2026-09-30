@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'">
+  <title>Open Download Manager</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="modern.css">
+</head>
+<body>
+  <header class="menubar" role="menubar">
+    <button data-menu="file">File</button><button data-menu="downloads">Downloads</button><button data-menu="view">View</button><button data-menu="tools">Tools</button><button data-menu="help">Help</button>
+    <div class="header-actions"><button id="command-trigger" title="Find an action (Ctrl+K)" aria-label="Find an action"><span>Search actions</span><kbd>Ctrl K</kbd></button><button id="theme-toggle" title="Change appearance" aria-label="Change appearance"></button></div>
+  </header>
+  <div id="menu" class="popup-menu" hidden></div>
+  <nav id="toolbar" class="toolbar" aria-label="Download controls"></nav>
+  <div class="workspace">
+    <aside id="sidebar">
+      <div class="brand"><div class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><b>Open Download</b><small>Your files. In one place.</small></div></div>
+      <div class="pane-title">Workspace <button id="hide-categories" title="Hide categories">×</button></div>
+      <div id="tree" role="tree"></div>
+      <div id="sidebar-tools" class="sidebar-tools"></div>
+      <div class="integration-card"><div class="connection-dot" id="connection-dot"></div><b>Browser integration</b><span id="bridge-label">Chrome & Edge extension</span><button id="connect-browser">Set up extension…</button></div>
+    </aside>
+    <main>
+      <div class="list-heading"><div class="heading-copy"><small>Your library</small><span id="list-title">All Downloads</span></div><div class="search-wrap"><span>⌕</span><input id="search" placeholder="Search downloads" aria-label="Search downloads"><button id="clear-search" title="Clear search">×</button></div></div>
+      <div id="selection-actions" class="selection-actions" hidden><span id="selection-label" class="selection-label"></span></div>
+      <div class="table-scroll">
+        <table id="downloads"><thead><tr>
+          <th data-sort="filename" class="name-column">File Name <span>▴</span></th><th data-sort="size">Size</th><th data-sort="status">Status</th><th data-sort="eta">Time left</th><th data-sort="speed">Transfer rate</th><th data-sort="resumable">Resume</th><th data-sort="createdAt">Date added</th><th data-sort="queue">Q</th>
+        </tr></thead><tbody id="rows"></tbody></table>
+        <div id="empty-state"><div class="empty-icon" id="empty-icon"></div><b>Ready when you are</b><p>Files, videos and playlists — all organized here.<br>Paste a link to get started, or connect your browser.</p><div class="empty-actions"><button class="primary" id="empty-add">New download</button><button id="empty-playlist">Playlist / video</button><button id="empty-browser">Connect browser</button></div><div class="empty-hint">Ctrl+N to add a download · Ctrl+V to paste a link</div></div>
+      </div>
+      <section id="details" class="details">
+        <div class="details-top"><b id="detail-name">Download information</b><span id="detail-status">Select a download to view its details</span></div>
+        <div class="details-grid"><span>Address</span><span id="detail-url">—</span><span>Save to</span><span id="detail-path">—</span><span>Progress</span><div class="progress-line"><div class="progress"><div id="detail-progress"></div></div><span id="detail-percent">—</span></div><span>Connections</span><div id="detail-segments" class="segments"><span>—</span></div></div>
+      </section>
+    </main>
+  </div>
+  <footer class="statusbar"><span id="status-count">0 downloads</span><span id="status-active">Ready</span><span id="status-speed">0 B/s</span><button id="limit-status">Speed limiter: OFF</button></footer>
+  <div id="context-menu" class="popup-menu" hidden></div>
+  <dialog id="dialog"><div class="dialog-title"><span id="dialog-title"></span><button id="dialog-close" aria-label="Close dialog">×</button></div><div id="dialog-body"></div><div id="dialog-footer"></div></dialog>
+  <div id="toast" role="status" hidden></div>
+  <link rel="stylesheet" href="batches.css">
+  <script src="renderer.js"></script>
+  <script src="advanced-renderer.js"></script>
+  <script src="modern-renderer.js"></script>
+  <script src="batch-renderer.js"></script>
+</body></html>

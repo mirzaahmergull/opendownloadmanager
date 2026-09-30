@@ -1,0 +1,2 @@
+const {spawn}=require('node:child_process');const path=require('node:path');
+const child=spawn(process.execPath,[require.resolve('electron-builder/cli.js'),'--mac','zip','--arm64','--x64',...process.argv.slice(2)],{cwd:path.resolve(__dirname,'..'),env:{...process.env,CSC_IDENTITY_AUTO_DISCOVERY:'false'},stdio:'inherit',windowsHide:true});child.on('error',e=>{console.error(e);process.exitCode=1;});child.on('exit',code=>{process.exitCode=code||0;});

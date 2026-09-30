@@ -1,0 +1,107 @@
+{
+  "name": "open-download-manager",
+  "version": "1.3.0",
+  "description": "Modern desktop download manager with segmented transfers, media collections and browser integration",
+  "main": "src/main.cjs",
+  "author": "Mirza Ahmer Gull and Open Download Manager contributors",
+  "private": true,
+  "homepage": "https://github.com/mirzaahmergull/opendownloadmanager#readme",
+  "repository": { "type": "git", "url": "git+https://github.com/mirzaahmergull/opendownloadmanager.git" },
+  "bugs": { "url": "https://github.com/mirzaahmergull/opendownloadmanager/issues" },
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "setup:windows": "node tools/setup-windows.cjs",
+    "release:assets": "node tools/release-assets.cjs",
+    "test": "node --test --test-concurrency=1 test/*.test.cjs",
+    "test:ui": "node test/ui.cjs",
+    "test:extension": "node test/extension.cjs",
+    "test:video": "node test/video.cjs",
+    "test:youtube": "node test/youtube-extension.cjs",
+    "test:packaged-video": "node test/packaged-video.cjs",
+    "build": "node tools/build.cjs",
+    "build:dir": "electron-builder --win --x64 --dir",
+    "build:mac": "node tools/build-macos.cjs",
+    "setup:mac": "node tools/setup-macos.cjs",
+    "test:modern": "node test/modern-ui.cjs",
+    "build:mac:cross": "node tools/fetch-electron-macos.cjs && node tools/mac-asar.cjs && python tools/package-macos.py",
+    "test:batches": "node test/batch-ui.cjs",
+    "test:sessions": "node test/session-extension.cjs",
+    "test:updater:live": "node test/engine-update-live.cjs"
+  },
+  "devDependencies": {
+    "7zip-bin": "^5.2.0",
+    "electron": "^44.4.5",
+    "electron-builder": "^26.15.3",
+    "playwright": "^1.63.0",
+    "yazl": "^3.3.1"
+  },
+  "build": {
+    "npmRebuild": false,
+    "appId": "org.opendownloadmanager.desktop",
+    "productName": "Open Download Manager",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "extension",
+        "to": "extension"
+      },
+      {
+        "from": "THIRD_PARTY.md",
+        "to": "THIRD_PARTY.md"
+      }
+    ],
+    "win": {
+      "target": "portable",
+      "icon": "assets/app.ico",
+      "signExecutable": false,
+      "extraResources": [
+        {
+          "from": "tools",
+          "to": "tools"
+        }
+      ]
+    },
+    "portable": {
+      "artifactName": "OpenDownloadManager-${version}-Windows.exe"
+    },
+    "mac": {
+      "target": [
+        "zip"
+      ],
+      "identity": null,
+      "category": "public.app-category.utilities",
+      "minimumSystemVersion": "13.0",
+      "artifactName": "OpenDownloadManager-${version}-macOS-${arch}.${ext}",
+      "extraResources": [
+        {
+          "from": "tools-macos/${arch}",
+          "to": "tools"
+        }
+      ],
+      "icon": "assets/app.icns"
+    }
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1143.0",
+    "@google-cloud/storage": "^8.2.0",
+    "basic-ftp": "^6.2.1",
+    "http-proxy-agent": "^9.1.0",
+    "https-proxy-agent": "^9.1.0",
+    "socks-proxy-agent": "^10.1.0",
+    "webtorrent": "^3.0.21",
+    "yauzl": "^3.4.0"
+  },
+  "overrides": {
+    "gaxios": {
+      "uuid": "^11.1.1"
+    }
+  }
+}

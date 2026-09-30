@@ -1,0 +1,32 @@
+{
+  "fixture": "16 MiB, 64 KiB each 5 ms per connection; uneven endpoint gives nonzero ranges 1 ms. Local controlled server, exact-byte/SHA-256 checks.",
+  "results": [
+    {
+      "name": "single",
+      "connections": 1,
+      "milliseconds": 4090.7,
+      "MiBps": 3.91,
+      "requests": 2,
+      "sockets": 2,
+      "segments": 1
+    },
+    {
+      "name": "parallel",
+      "connections": 8,
+      "milliseconds": 617.5,
+      "MiBps": 25.91,
+      "requests": 9,
+      "sockets": 8,
+      "segments": 8
+    },
+    {
+      "name": "uneven",
+      "connections": 8,
+      "milliseconds": 377.1,
+      "MiBps": 42.43,
+      "requests": 12,
+      "sockets": 5,
+      "segments": 11
+    }
+  ]
+}

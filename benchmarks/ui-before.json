@@ -1,0 +1,8 @@
+{
+  "history": {
+    "jobs": 20000,
+    "domRows": 25,
+    "initialMs": 33,
+    "progressP95Ms": 2.9000000059604645
+  }
+}

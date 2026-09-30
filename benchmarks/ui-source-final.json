@@ -1,0 +1,9 @@
+{
+  "history": {
+    "unchangedRowMutations": 0,
+    "jobs": 20000,
+    "domRows": 25,
+    "initialMs": 35.80000001192093,
+    "progressP95Ms": 0.4000000059604645
+  }
+}

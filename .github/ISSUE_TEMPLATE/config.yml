@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Setup and batch guide
+    url: https://github.com/mirzaahmergull/opendownloadmanager/blob/main/BATCHES.md
+    about: Cookie sharing, pacing, cloud storage and notification settings.
