@@ -12,6 +12,7 @@ test-results/
 
 .build-cache/
 tools-macos/
+benchmarks/upgrade-*.json
 tools/*.exe
 tools/*.dll
 test/fixtures/*.mp4
