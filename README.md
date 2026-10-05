@@ -21,7 +21,7 @@ After starting the app, click **New download** to paste an address. Use **Video 
 - **Video batches:** queue multiple playlists with separate folders, persistent import/progress and optional resume after reopening.
 - **Browser session:** share YouTube cookies through an explicit extension button, with OS-encrypted storage and optional 30-minute refresh.
 - **Pacing:** configurable gaps, rests, concurrency and smart rate-limit cooldown/session holds. Defaults favor one video at a time.
-- **Developer tools:** S3/GCS destinations, resumable uploads, checksum verification and optional local cleanup after every remote copy is verified; storage/upload problems hold the batch.
+- **Developer tools:** S3/R2/GCS destinations, resumable uploads, checksum verification and optional local cleanup after every remote copy is verified; storage/upload problems hold the batch.
 - **Automatic yt-dlp updates:** daily official release checks, verified installation at idle and previous-engine restore.
 - **Notifications:** errors and blockages only by default, with All and None modes.
 

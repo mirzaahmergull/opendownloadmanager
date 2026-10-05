@@ -32,7 +32,7 @@ Windows is unsigned. macOS packages preserve upstream executable bytes but are n
 
 7-Zip was fetched from the official ip7z release and checked against its release asset SHA-256. Its source and digest are recorded in tools/licenses/7zip-source.json. Torrent support uses TCP peers and HTTP/UDP trackers; optional native WebRTC/uTP modules are disabled.
 
-Cloud storage uses the official AWS SDK for JavaScript (`@aws-sdk/client-s3`, Apache-2.0) and Google Cloud Storage Node client (`@google-cloud/storage`, Apache-2.0), locked in package-lock.json. Their notices/licenses remain in the installed dependency packages. A scoped gaxios→uuid 11.1.1-compatible override avoids GHSA-w5hq-g745-h8pq; cloud protocol tests exercise the resulting dependency tree.
+Cloud storage uses the official AWS SDK for JavaScript (`@aws-sdk/client-s3`, Apache-2.0; also used for Cloudflare R2's S3-compatible API) and Google Cloud Storage Node client (`@google-cloud/storage`, Apache-2.0), locked in package-lock.json. Their notices/licenses remain in the installed dependency packages. A scoped gaxios→uuid 11.1.1-compatible override avoids GHSA-w5hq-g745-h8pq; cloud protocol tests exercise the resulting dependency tree.
 
 ## Public release policy
 
