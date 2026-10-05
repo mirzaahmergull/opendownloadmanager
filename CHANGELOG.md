@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Cloudflare R2 cloud destinations alongside Amazon S3 and Google Cloud Storage: account-ID endpoint derivation, EU/FedRAMP jurisdictions, encrypted or `R2_*` environment credentials, `Content-MD5`-validated single and resumable multipart uploads with ETag verification before local cleanup.
+
 ## 1.3.0 — 2026-09-30
 
 First public open-source release.
